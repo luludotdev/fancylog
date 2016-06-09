@@ -1,6 +1,6 @@
 {
   "name": "fancylog",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Outputs a nice log file to both the console and a log file.",
   "main": "log.js",
   "scripts": {

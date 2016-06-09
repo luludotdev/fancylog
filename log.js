@@ -15,10 +15,11 @@ function log(msg, level, color) {
   var d = new Date();
   // Constructs a date formatted message
   // "You must constuct additional date formatted messages." - DerpyChap
-  var data = color + '[' + level + ']\x1b[37m [' + d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '] ' + msg;
+  var termData 	= color + '[' + level + ']\x1b[37m [' + d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '] ' + msg;
+  var logData 	= '[' + level + '] [' + d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '] ' + msg;
   
   // Show this in the console
-  console.log(data);
+  console.log(termData);
   
   // Create a log file if it doesn't already exist. Used on first run.
   createIfNotExist(logPath, "");
@@ -27,14 +28,14 @@ function log(msg, level, color) {
     // Uh oh
     if (err) {
       // cant save to file
-      console.error("Failed to output to marmite.log");
+      console.error("Failed to output to " + logName);
     } else {
       // Try to log
-      fs.appendFile(logPath, data + '\n', 'utf8', function(err) {
+      fs.appendFile(logPath, logData + '\n', 'utf8', function(err) {
         // If no worky...
         if (err) {
           // Whoopsy
-          console.error("Failed to output to marmite.log");
+          console.error("Failed to output to " + logName);
         }
       });
     }
