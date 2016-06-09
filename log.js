@@ -8,6 +8,9 @@ var createIfNotExist = require("create-if-not-exist");
 var fs = require("fs");
 
 function log(msg, level, color) {
+  // Set Path
+  var logPath = "./" + logName;
+  
   if (msg == null) {
     // If no msg arg, make a newline.
     createIfNotExist(logPath, "");
@@ -19,8 +22,6 @@ function log(msg, level, color) {
       }
     });
   } else {
-    // Set Path
-    var logPath = "./" + logName;
     
     // Gets the date
     var d = new Date();
