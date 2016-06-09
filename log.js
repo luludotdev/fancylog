@@ -5,8 +5,9 @@ var logName = "default.log"
 
 // Require Dependants
 var createIfNotExist = require("create-if-not-exist");
+var fs = require("fs");
 
-function log(msg, level) {
+function log(msg, level, color) {
   // Set Path
   var logPath = "./" + logName;
   
@@ -14,7 +15,7 @@ function log(msg, level) {
   var d = new Date();
   // Constructs a date formatted message
   // "You must constuct additional date formatted messages." - DerpyChap
-  var data = '[' + d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '] [' + level + '] ' + msg;
+  var data = color + '[' + level + ']\x1b[37m [' + d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '] ' + msg;
   
   // Show this in the console
   console.log(data);
@@ -41,23 +42,23 @@ function log(msg, level) {
 }
 
 function info(msg) {
-  log(msg, "INFO");
+  log(msg, "INFO", "\x1b[32m");
 }
 
 function debug(msg) {
-  log(msg, "INFO");
+  log(msg, "INFO", "\x1b[39m");
 }
 
 function error(msg) {
-  log(msg, "ERROR");
+  log(msg, "ERROR", "\x1b[31m");
 }
 
 function verbose(msg) {
-  log(msg, "VERBOSE");
+  log(msg, "VERBOSE", "\x1b[39m");
 }
 
 function warn(msg) {
-  log(msg, "WARN");
+  log(msg, "WARN", "\x1b[33m");
 }
 
 module.exports = {
@@ -66,6 +67,4 @@ module.exports = {
   e: error,
   v: verbose,
   w: warn
-}
-
-warn("test");
+};
