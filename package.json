@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/lolPants/fancylog/issues"
   },
-  "homepage": "https://github.com/lolPants/fancylog#readme"
+  "homepage": "https://github.com/lolPants/fancylog#readme",
+  "dependencies": {
+    "create-if-not-exist": "0.0.2"
+  }
 }
