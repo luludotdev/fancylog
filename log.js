@@ -60,7 +60,7 @@ function info(msg) {
 }
 
 function debug(msg) {
-  log(msg, "INFO", "\x1b[39m");
+  log(msg, "DEBUG", "\x1b[33m");
 }
 
 function error(msg) {
