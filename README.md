@@ -1,25 +1,53 @@
 # Fancy Log
 
-## What?
-Simple, yet easy to use log system for NodeJS
-Made by Jack Baron
+## About
+FancyLog - Logging made Pretty
+By Jack Baron
+Copyright (c) Jack Baron 2016
+Licensed under ISC License
 
-Example output:
-`[INFO] [1/1/1970 00:00:00] Log Thing` 
+## Installation
+Install the package using
+```npm install fancylog```
 
-## How?
+To add it as a dependency, use
+```npm install --save```
+
+Once installed, require the package with
 
 ```js
-// Import the package.
-var log = require("fancylog");
-
-// Use the file
-log.v("Log Message");
+var log = require('fancylog');
 ```
 
----
+## Usage
+Call one of the following functions for different levels of warning.
 
-### What functions can I use?
+```js
+i: info
+d: debug
+e: error
+v: verbose
+w: warn
+```
+
+Example Call
+
+```js
+log.i(msg);
+// Where msg is the message you want to log
+```
+
+### Configurables
+If you wish to change the log filename or stop it outputting to a file alltogether, you can tweak the configurables at the top of `log.js`
+
+```js
+// Configurables
+var logName = "default.log";
+var logToFile = true;
+```
+
+## Examples
+
 ```js
 // Info
 log.i("Log Message");
@@ -31,8 +59,22 @@ log.d("Log Message");
 log.e("Log Message");
 
 // Warn
-log.w("Log Message");
+log.v("Log Message");
 
 // Verbose
-log.v("Log Message");
+log.w"Log Message");
 ```
+
+Would Output
+
+```
+[INFO] [01/01/1970 00:00:00] Log Message
+[DEBUG] [01/01/1970 00:00:00] Log Message
+[ERROR] [01/01/1970 00:00:00] Log Message
+[VERBOSE] [01/01/1970 00:00:00] Log Message
+[WARN] [01/01/1970 00:00:00] Log Message
+```
+
+## Credits
+- Jack Baron (me@jackbaron.com) - Author
+- David Jones (https://github.com/drj-io) - create-if-not-exist
