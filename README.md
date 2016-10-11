@@ -8,19 +8,20 @@ Licensed under ISC License
 
 ## Installation
 Install the package using
-```npm install fancylog```
+```npm i fancylog```
 
 To add it as a dependency, use
-```npm install --save```
+```npm i --save fancylog```
 
 Once installed, require the package with
 
 ```js
-var log = require('fancylog');
+const FancyLog = require('fancylog')
+const log = new FancyLog()
 ```
 
 ## Usage
-Call one of the following functions for different levels of warning.
+Call one of the following functions or shortcuts for different levels of warning.
 
 ```js
 i: info
@@ -37,42 +38,37 @@ log.i(msg);
 // Where msg is the message you want to log
 ```
 
-### Configurables
-If you wish to change the log filename or stop it outputting to a file alltogether, you can tweak the configurables at the top of `log.js`
+### File Output
+To output to a file, pass the file path as an argument when creating the new class
 
 ```js
-// Configurables
-var logName = "default.log";
-var logToFile = true;
+// Example
+const log = new FancyLog(__dirname + '/default.log')
 ```
 
 ## Examples
 
 ```js
 // Info
-log.i("Log Message");
-
+log.info("Log Message");
 // Debug
 log.d("Log Message");
-
 // Error
-log.e("Log Message");
-
+log.error("Log Message");
 // Warn
 log.v("Log Message");
-
 // Verbose
-log.w"Log Message");
+log.warn("Log Message");
 ```
 
 Would Output
 
 ```
-[INFO] [01/01/1970 00:00:00] Log Message
-[DEBUG] [01/01/1970 00:00:00] Log Message
-[ERROR] [01/01/1970 00:00:00] Log Message
+[INFO]    [01/01/1970 00:00:00] Log Message
+[DEBUG]   [01/01/1970 00:00:00] Log Message
+[ERROR]   [01/01/1970 00:00:00] Log Message
 [VERBOSE] [01/01/1970 00:00:00] Log Message
-[WARN] [01/01/1970 00:00:00] Log Message
+[WARN]    [01/01/1970 00:00:00] Log Message
 ```
 
 ## Credits

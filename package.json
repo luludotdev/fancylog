@@ -1,10 +1,10 @@
 {
   "name": "fancylog",
-  "version": "1.4.3",
+  "version": "2.1.2",
   "description": "Outputs a nice log file to both the console and a log file.",
-  "main": "log.js",
+  "main": "main.js",
   "scripts": {
-    "test": "node tests.js"
+    "test": "node ./tests/tests.js"
   },
   "repository": {
     "type": "git",
