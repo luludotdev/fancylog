@@ -1,7 +1,7 @@
 {
   "name": "fancylog",
-  "version": "2.1.2",
-  "description": "Outputs a nice log file to both the console and a log file.",
+  "version": "2.2.4",
+  "description": "Fancy Logging Function. Outputs to console and optionally a file.",
   "main": "main.js",
   "scripts": {
     "test": "node ./tests/tests.js"
@@ -11,9 +11,11 @@
     "url": "git+https://github.com/lolPants/fancylog.git"
   },
   "keywords": [
+    "logging",
+    "file",
+    "console",
     "log",
-    "level",
-    "simple"
+    "timestamp"
   ],
   "author": "Jack Baron",
   "license": "ISC",

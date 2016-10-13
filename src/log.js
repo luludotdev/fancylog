@@ -3,6 +3,8 @@
   By Jack Baron
   Copyright (c) Jack Baron 2016
   Licensed under ISC License
+
+  Logging Module
 */
 
 // Require Dependants
@@ -80,7 +82,7 @@ FancyLog.prototype.log = function (msg, level) {
       cIfNExists(this.path, "")
       fs.appendFile(this.path, `${logData}\n`, 'utf8', err => { if (err) console.error("Failed to output to log.") })
     } catch (ex) {
-      console.log(ex);
+      console.log(ex)
     }
   }
 }
