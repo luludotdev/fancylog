@@ -1,10 +1,11 @@
 # Fancy Log
+[![Travis](https://img.shields.io/travis/lolPants/fancylog.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/fancylog) 
 
 ## About
-FancyLog - Logging made Pretty
-By Jack Baron
-Copyright (c) Jack Baron 2016
-Licensed under ISC License
+FancyLog - Logging made Pretty  
+By Jack Baron  
+Copyright (c) Jack Baron 2016  
+Licensed under ISC License  
 
 ## Installation
 Install the package using
@@ -55,9 +56,9 @@ log.info("Log Message");
 log.d("Log Message");
 // Error
 log.error("Log Message");
-// Warn
-log.v("Log Message");
 // Verbose
+log.v("Log Message");
+// Warn
 log.warn("Log Message");
 ```
 
