@@ -9,7 +9,7 @@
 
 // Require Dependencies
 const path      = require('path')
-const FancyLog  = require('../main.js')
+const FancyLog  = require(path.join('..', 'lib', '/'))
 const log       = new FancyLog()
 
 // Try to log all functions
