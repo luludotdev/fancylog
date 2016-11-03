@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "npm run lint && npm run test",
-    "tests": "node ./tests/tests.js",
+    "tests": "node ./test/test.js",
     "lint": "eslint ./"
   },
   "repository": {
