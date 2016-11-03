@@ -1,4 +1,4 @@
-# Fancy Log
+# FancyLog
 [![Travis](https://img.shields.io/travis/lolPants/fancylog.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/fancylog) 
 
 ## About
@@ -8,11 +8,11 @@ Copyright (c) Jack Baron 2016
 Licensed under ISC License  
 
 ## Installation
-Install the package using
-```npm i fancylog```
+Install the package using  
+`npm i fancylog`
 
-To add it as a dependency, use
-```npm i --save fancylog```
+To add it as a dependency, use  
+`yarn add fancylog` or `npm i -S fancylog`
 
 Once installed, require the package with
 
@@ -25,17 +25,17 @@ const log = new FancyLog()
 Call one of the following functions or shortcuts for different levels of warning.
 
 ```js
-i: info
-d: debug
-e: error
-v: verbose
-w: warn
+i or info
+d or debug
+e or error
+v or verbose
+w or warn
 ```
 
 Example Call
 
 ```js
-log.i(msg);
+log.i(msg)
 // Where msg is the message you want to log
 ```
 
@@ -51,15 +51,15 @@ const log = new FancyLog(__dirname + '/default.log')
 
 ```js
 // Info
-log.info("Log Message");
+log.info("Log Message")
 // Debug
-log.d("Log Message");
+log.d("Log Message")
 // Error
-log.error("Log Message");
+log.error("Log Message")
 // Verbose
-log.v("Log Message");
+log.v("Log Message")
 // Warn
-log.warn("Log Message");
+log.warn("Log Message")
 ```
 
 Would Output
