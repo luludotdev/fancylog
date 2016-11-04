@@ -44,7 +44,8 @@ To output to a file, pass the file path as an argument when creating the new cla
 
 ```js
 // Example
-const log = new FancyLog(__dirname + '/default.log')
+const path = require('path')
+const log = new FancyLog(path.join(__dirname, 'default.log'))
 ```
 
 ## Examples
@@ -73,5 +74,5 @@ Would Output
 ```
 
 ## Credits
-- Jack Baron (me@jackbaron.com) - Author
-- David Jones (https://github.com/drj-io) - create-if-not-exist
+- Jack Baron    (https://github.com/lolpants) - Author
+- David Jones   (https://github.com/drj-io)   - create-if-not-exist
