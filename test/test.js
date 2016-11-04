@@ -9,7 +9,7 @@
 
 // Require Dependencies
 const path      = require('path')
-const FancyLog  = require(path.join('..', 'lib', '/'))
+const FancyLog  = require(path.join('..', 'src'))
 const log       = new FancyLog()
 
 // Try to log all functions
@@ -24,7 +24,7 @@ try {
   process.exit(0)
 } catch (ex) {
   // Log Exception
-  console.log(ex)
+  console.error(ex)
   // Exit with force
   process.exit(1)
 }

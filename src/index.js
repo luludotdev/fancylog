@@ -149,18 +149,23 @@ const _warn = msg => {
   _log(msg, 'warn')
 }
 
+// Info Logging Proto
 FancyLog.prototype.info     = _info
 FancyLog.prototype.i        = _info
 
+// Debug Logging Proto
 FancyLog.prototype.debug    = _debug
 FancyLog.prototype.d        = _debug
 
+// Error Logging Proto
 FancyLog.prototype.error    = _error
 FancyLog.prototype.e        = _error
 
+// Verbose Logging Proto
 FancyLog.prototype.verbose  = _verbose
 FancyLog.prototype.v        = _verbose
 
+// Warn Logging Proto
 FancyLog.prototype.warn     = _warn
 FancyLog.prototype.w        = _warn
 
