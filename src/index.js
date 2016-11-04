@@ -41,6 +41,7 @@ let FancyLog = function FancyLog (path) {
 /**
  * Timestamp Creation
  * @returns {string} Current Timestamp
+ * @private
  */
 const _timestamp = () => {
   // Create a timestamp
@@ -57,6 +58,7 @@ const _timestamp = () => {
  * Logging function
  * @param {string} msg - Message to Log
  * @param {string} [level] - Logging Level
+ * @private
  */
 const _log = (msg, level) => {
   // Define Level Colour
@@ -112,6 +114,7 @@ const _log = (msg, level) => {
 /**
  * Logs at INFO Level
  * @param {string} msg - Message to Log
+ * @private
  */
 const _info = msg => {
   _log(msg, 'info')
@@ -120,6 +123,7 @@ const _info = msg => {
 /**
  * Logs at DEBUG Level
  * @param {string} msg - Message to Log
+ * @private
  */
 const _debug = msg => {
   _log(msg, 'debug')
@@ -128,6 +132,7 @@ const _debug = msg => {
 /**
  * Logs at ERROR Level
  * @param {string} msg - Message to Log
+ * @private
  */
 const _error = msg => {
   _log(msg, 'error')
@@ -136,6 +141,7 @@ const _error = msg => {
 /**
  * Logs at VERBOSE Level
  * @param {string} msg - Message to Log
+ * @private
  */
 const _verbose = msg => {
   _log(msg, 'verbose')
@@ -144,6 +150,7 @@ const _verbose = msg => {
 /**
  * Logs at WARN Level
  * @param {string} msg - Message to Log
+ * @private
  */
 const _warn = msg => {
   _log(msg, 'warn')
