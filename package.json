@@ -1,6 +1,6 @@
 {
   "name": "fancylog",
-  "version": "2.3.2",
+  "version": "3.0.0",
   "description": "Fancy Logging Function. Outputs to console and optionally a file.",
   "main": "main.js",
   "scripts": {
