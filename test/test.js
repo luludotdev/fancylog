@@ -14,11 +14,11 @@ const log       = new FancyLog()
 
 // Try to log all functions
 try {
-  log.i('aa')
-  log.d('aa')
-  log.e('aa')
-  log.v('aa')
-  log.w('aa')
+  log.i('This is a message.')
+  log.debug('Something happened.')
+  log.e('ERROR: Oh Dear!')
+  log.verbose('WORDS')
+  log.w('Deprecated. Use something Else...')
 
   // Exit Nicely
   process.exit(0)
