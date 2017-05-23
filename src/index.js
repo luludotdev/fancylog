@@ -19,8 +19,10 @@ class FancyLog {
   static get e () { return log._e }
 
   static get verbose () { return log._v }
+  static get verb () { return log._v }
   static get v () { return log._v }
 
+  static get warning () { return log._w }
   static get warn () { return log._w }
   static get w () { return log._w }
 }
