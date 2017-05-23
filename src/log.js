@@ -5,7 +5,7 @@
   Licensed under ISC License
 */
 
-// Require Dependants
+// Require Dependencies
 const create = require('create-if-not-exist')
 const fs = require('fs')
 const lib = require('./lib.js')

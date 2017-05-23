@@ -8,9 +8,7 @@
 */
 
 // Require Dependencies
-const path      = require('path')
-const FancyLog  = require(path.join('..', 'src'))
-const log       = new FancyLog()
+const log = require('../src/')
 
 // Try to log all functions
 try {
