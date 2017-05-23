@@ -22,9 +22,10 @@ if (typeof Number.prototype.digitFormat !== 'function') {
  * Logging function
  * @param {string} msg - Message to Log
  * @param {string} [level] - Logging Level
+ * @param {string} [path] - Output File Path
  * @private
  */
-const _log = (msg, level) => {
+const _log = (msg, level, path = undefined) => {
   // Define Level Colour
   let colour = lib._colourSwitch(level)
 
@@ -45,10 +46,10 @@ const _log = (msg, level) => {
   console.log(termData)
 
   // If a path was given, ouput.
-  if (this.path !== undefined) {
+  if (path !== undefined) {
     try {
-      create(this.path, '')
-      fs.appendFile(this.path, `${logData}\n`, 'utf8', err => { if (err) console.error('Failed to output to log.') })
+      create(path, '')
+      fs.appendFile(path, `${logData}\n`, 'utf8', err => { if (err) console.error('Failed to output to log.') })
     } catch (ex) {
       console.log(ex)
     }
@@ -58,37 +59,42 @@ const _log = (msg, level) => {
 /**
  * Logs at INFO Level
  * @param {string} msg - Message to Log
+ * @param {string} [path] - Output File Path
  * @private
  */
-const _i = msg => { _log(msg, 'info') }
+const _i = (msg, path) => { _log(msg, 'info', path) }
 
 /**
  * Logs at DEBUG Level
  * @param {string} msg - Message to Log
+ * @param {string} [path] - Output File Path
  * @private
  */
-const _d = msg => { _log(msg, 'debug') }
+const _d = (msg, path) => { _log(msg, 'debug', path) }
 
 /**
  * Logs at ERROR Level
  * @param {string} msg - Message to Log
+ * @param {string} [path] - Output File Path
  * @private
  */
-const _e = msg => { _log(msg, 'error') }
+const _e = (msg, path) => { _log(msg, 'error', path) }
 
 /**
  * Logs at VERBOSE Level
  * @param {string} msg - Message to Log
+ * @param {string} [path] - Output File Path
  * @private
  */
-const _v = msg => { _log(msg, 'verbose') }
+const _v = (msg, path) => { _log(msg, 'verbose', path) }
 
 /**
  * Logs at WARN Level
  * @param {string} msg - Message to Log
+ * @param {string} [path] - Output File Path
  * @private
  */
-const _w = msg => { _log(msg, 'warn') }
+const _w = (msg, path) => { _log(msg, 'warn', path) }
 
 module.exports = {
   _i: _i,

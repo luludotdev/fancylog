@@ -2,65 +2,69 @@
 [![Travis](https://img.shields.io/travis/lolPants/fancylog.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/fancylog) 
 
 ## About
-FancyLog - Logging made Pretty  
-By Jack Baron  
-Copyright (c) Jack Baron 2016  
+FancyLog - By Jack Baron  
+Copyright (c) Jack Baron 2017  
 Licensed under ISC License  
 
 ## Installation
-Install the package using  
-`npm i fancylog`
+If you're using Yarn:
+```sh
+yarn add fancylog
+```
 
-To add it as a dependency, use  
-`yarn add fancylog` or `npm i -S fancylog`
+If you're using NPM:
+```sh
+npm install --save fancylog
+```
 
 Once installed, require the package with
 
 ```js
-const FancyLog = require('fancylog')
-const log = new FancyLog()
+const log = require('fancylog')
 ```
 
 ## Usage
 Call one of the following functions or shortcuts for different levels of warning.
 
 ```js
-i or info
-d or debug
-e or error
-v or verbose
-w or warn
+/*
+ * Info     (i, info)
+ * Debug    (d, debug)
+ * Error    (e, error)
+ * Verbose  (v, verbose, verb)
+ * Warning  (w, warning, warn)
+ */
 ```
 
-Example Call
-
+Example Call:
 ```js
-log.i(msg)
-// Where msg is the message you want to log
+// Code
+log.i('SOME TEXT HERE')
+
+// Would Output:
+// [INFO]    [01/01/1970 00:00:00] SOME TEXT HERE
 ```
 
 ### File Output
 To output to a file, pass the file path as an argument when creating the new class
 
 ```js
-// Example
-const path = require('path')
-const log = new FancyLog(path.join(__dirname, 'default.log'))
+const log = new FancyLog('./default.log')
 ```
 
-## Examples
+## Further Examples
 
 ```js
 // Info
-log.info("Log Message")
+log.info('Log Message')
 // Debug
-log.d("Log Message")
+log.d('Log Message')
 // Error
-log.error("Log Message")
+log.error('Log Message')
 // Verbose
-log.v("Log Message")
+log.v('Log Message')
 // Warn
-log.warn("Log Message")
+log.warn('Log Message')
 ```
 
 Would Output
