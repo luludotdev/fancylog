@@ -3,13 +3,12 @@
   By Jack Baron
   Copyright (c) Jack Baron 2016
   Licensed under ISC License
-
-  Logging Module
 */
 
 // Require Dependants
-const create  = require('create-if-not-exist')
-const fs      = require('fs')
+const create = require('create-if-not-exist')
+const fs = require('fs')
+const lib = require('./lib.js')
 
 // Number Formatting for Date
 if (typeof Number.prototype.digitFormat !== 'function') {
@@ -17,41 +16,6 @@ if (typeof Number.prototype.digitFormat !== 'function') {
     let parsed = `0${this}`.slice(-2)
     return parsed
   }
-}
-
-const colours = {
-  red: `\x1b[31m`,
-  green: `\x1b[32m`,
-  yellow: `\x1b[33m`,
-  blue: `\x1b[34m`,
-  magenta: `\x1b[35m`,
-  cyan: `\x1b[36m`,
-  reset: `\x1b[39m`,
-}
-
-/**
- * FancyLog Constructor
- * @constructor
- * @param {string} [path] - Output Log Path
- */
-let FancyLog = function FancyLog (path) {
-  this.path = path
-}
-
-/**
- * Timestamp Creation
- * @returns {string} Current Timestamp
- * @private
- */
-const _timestamp = () => {
-  // Create a timestamp
-  let d = new Date()
-
-  let date = `${d.getDate().digitFormat()}/${(d.getMonth() + 1).digitFormat()}/${d.getFullYear()}`
-  let time = `${d.getHours().digitFormat()}:${d.getMinutes().digitFormat()}:${d.getSeconds().digitFormat()}`
-
-  let timestamp = `[${date} ${time}]`
-  return timestamp
 }
 
 /**
@@ -62,27 +26,7 @@ const _timestamp = () => {
  */
 const _log = (msg, level) => {
   // Define Level Colour
-  let colour
-  switch (level.toLowerCase()) {
-    case 'info':
-      colour = colours.green
-      break
-    case 'debug':
-      colour = colours.cyan
-      break
-    case 'error':
-      colour = colours.red
-      break
-    case 'verbose':
-      colour = colours.magenta
-      break
-    case 'warn':
-      colour = colours.yellow
-      break
-    default:
-      colour = colours.green
-      break
-  }
+  let colour = lib._colourSwitch(level)
 
   // Level text is level all uppercase bcus reasons
   let levelText = level.toUpperCase()
@@ -93,9 +37,9 @@ const _log = (msg, level) => {
   }
 
   // Create formatted messages for console and text output
-  let timestamp = _timestamp()
-  let termData  = `${colour}[${levelText}]${padding} ${colours.reset}${timestamp} ${msg}`
-  let logData 	= `[${levelText}]${padding} ${timestamp} ${msg}`
+  let timestamp = lib._timestamp()
+  let termData = `${colour}[${levelText}]${padding} ${lib.TERMINAL_COLOURS.RESET}${timestamp} ${msg}`
+  let logData = `[${levelText}]${padding} ${timestamp} ${msg}`
 
   // Show this in the console
   console.log(termData)
@@ -104,7 +48,7 @@ const _log = (msg, level) => {
   if (this.path !== undefined) {
     try {
       create(this.path, '')
-      fs.appendFile(this.path, `${logData}\n`, 'utf8', err => { if (err) console.error(`Failed to output to log.`) })
+      fs.appendFile(this.path, `${logData}\n`, 'utf8', err => { if (err) console.error('Failed to output to log.') })
     } catch (ex) {
       console.log(ex)
     }
@@ -116,64 +60,40 @@ const _log = (msg, level) => {
  * @param {string} msg - Message to Log
  * @private
  */
-const _info = msg => {
-  _log(msg, 'info')
-}
+const _i = msg => { _log(msg, 'info') }
 
 /**
  * Logs at DEBUG Level
  * @param {string} msg - Message to Log
  * @private
  */
-const _debug = msg => {
-  _log(msg, 'debug')
-}
+const _d = msg => { _log(msg, 'debug') }
 
 /**
  * Logs at ERROR Level
  * @param {string} msg - Message to Log
  * @private
  */
-const _error = msg => {
-  _log(msg, 'error')
-}
+const _e = msg => { _log(msg, 'error') }
 
 /**
  * Logs at VERBOSE Level
  * @param {string} msg - Message to Log
  * @private
  */
-const _verbose = msg => {
-  _log(msg, 'verbose')
-}
+const _v = msg => { _log(msg, 'verbose') }
 
 /**
  * Logs at WARN Level
  * @param {string} msg - Message to Log
  * @private
  */
-const _warn = msg => {
-  _log(msg, 'warn')
+const _w = msg => { _log(msg, 'warn') }
+
+module.exports = {
+  _i: _i,
+  _d: _d,
+  _e: _e,
+  _v: _v,
+  _w: _w,
 }
-
-// Info Logging Proto
-FancyLog.prototype.info     = _info
-FancyLog.prototype.i        = _info
-
-// Debug Logging Proto
-FancyLog.prototype.debug    = _debug
-FancyLog.prototype.d        = _debug
-
-// Error Logging Proto
-FancyLog.prototype.error    = _error
-FancyLog.prototype.e        = _error
-
-// Verbose Logging Proto
-FancyLog.prototype.verbose  = _verbose
-FancyLog.prototype.v        = _verbose
-
-// Warn Logging Proto
-FancyLog.prototype.warn     = _warn
-FancyLog.prototype.w        = _warn
-
-module.exports = FancyLog
