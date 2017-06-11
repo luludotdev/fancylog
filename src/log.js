@@ -22,10 +22,10 @@ if (typeof Number.prototype.digitFormat !== 'function') {
  * Logging function
  * @param {string} msg - Message to Log
  * @param {string} [level] - Logging Level
- * @param {string} [path] - Output File Path
+ * @param {string} path - Output File Path
  * @private
  */
-const _log = (msg, level, path = undefined) => {
+const _log = (msg, level, path) => {
   // Define Level Colour
   let colour = lib._colourSwitch(level)
 
@@ -49,7 +49,9 @@ const _log = (msg, level, path = undefined) => {
   if (path !== undefined) {
     try {
       create(path, '')
-      fs.appendFile(path, `${logData}\n`, 'utf8', err => { if (err) console.error('Failed to output to log.') })
+      fs.readFile(path, 'utf8', (err, res) => {
+        console.log(err, res)
+      })
     } catch (ex) {
       console.log(ex)
     }
@@ -62,7 +64,7 @@ const _log = (msg, level, path = undefined) => {
  * @param {string} [path] - Output File Path
  * @private
  */
-const _i = (msg, path) => { _log(msg, 'info', path) }
+const _i = (msg, path = undefined) => { _log(msg, 'info', path) }
 
 /**
  * Logs at DEBUG Level
@@ -70,7 +72,7 @@ const _i = (msg, path) => { _log(msg, 'info', path) }
  * @param {string} [path] - Output File Path
  * @private
  */
-const _d = (msg, path) => { _log(msg, 'debug', path) }
+const _d = (msg, path = undefined) => { _log(msg, 'debug', path) }
 
 /**
  * Logs at ERROR Level
@@ -78,7 +80,7 @@ const _d = (msg, path) => { _log(msg, 'debug', path) }
  * @param {string} [path] - Output File Path
  * @private
  */
-const _e = (msg, path) => { _log(msg, 'error', path) }
+const _e = (msg, path = undefined) => { _log(msg, 'error', path) }
 
 /**
  * Logs at VERBOSE Level
@@ -86,7 +88,7 @@ const _e = (msg, path) => { _log(msg, 'error', path) }
  * @param {string} [path] - Output File Path
  * @private
  */
-const _v = (msg, path) => { _log(msg, 'verbose', path) }
+const _v = (msg, path = undefined) => { _log(msg, 'verbose', path) }
 
 /**
  * Logs at WARN Level
@@ -94,7 +96,7 @@ const _v = (msg, path) => { _log(msg, 'verbose', path) }
  * @param {string} [path] - Output File Path
  * @private
  */
-const _w = (msg, path) => { _log(msg, 'warn', path) }
+const _w = (msg, path = undefined) => { _log(msg, 'warn', path) }
 
 module.exports = {
   _i: _i,

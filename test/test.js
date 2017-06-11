@@ -8,15 +8,21 @@
 */
 
 // Require Dependencies
-const log = require('../src/')
+const Log = require('../src/')
+const pathLog = new Log(`${__dirname}/default.log`)
 
 // Try to log all functions
 try {
-  log.i('aa')
-  log.d('aa')
-  log.e('aa')
-  log.v('aa')
-  log.w('aa')
+  Log.i('aa')
+  Log.d('aa')
+  Log.e('aa')
+  Log.v('aa')
+  Log.w('aa')
+  pathLog.i('aa')
+  pathLog.d('aa')
+  pathLog.e('aa')
+  pathLog.v('aa')
+  pathLog.w('aa')
 
   // Exit Nicely
   process.exit(0)
