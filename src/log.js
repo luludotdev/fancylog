@@ -49,9 +49,7 @@ const _log = (msg, level, path) => {
   if (path !== undefined) {
     try {
       create(path, '')
-      fs.readFile(path, 'utf8', (err, res) => {
-        console.log(err, res)
-      })
+      fs.appendFile(path, logData, (err) => { if (err) console.log(err) })
     } catch (ex) {
       console.log(ex)
     }
