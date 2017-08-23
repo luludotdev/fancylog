@@ -1,37 +1,26 @@
 {
   "name": "fancylog",
-  "version": "3.0.0",
-  "description": "Fancy Logging Function. Outputs to console and optionally a file.",
-  "main": "main.js",
+  "version": "3.1.0",
+  "description": "Fancy Logging Function",
+  "main": "src/index.js",
   "scripts": {
-    "test": "npm run lint && npm run tests",
-    "tests": "node ./test/test.js",
-    "lint": "eslint ./",
-    "docs": "jsdoc --configure .jsdoc.json --verbose"
+    "test": "eslint --ext .js src/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lolPants/fancylog.git"
   },
   "keywords": [
-    "logging",
-    "file",
-    "console",
+    "fancy",
     "log",
-    "timestamp"
+    "logging",
+    "console",
+    "file"
   ],
-  "author": "Jack Baron",
+  "author": "Jack Baron <me@jackbaron.com> (https://www.jackbaron.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lolPants/fancylog/issues"
   },
-  "homepage": "https://github.com/lolPants/fancylog#readme",
-  "dependencies": {
-    "create-if-not-exist": "0.0.2"
-  },
-  "devDependencies": {
-    "eslint": "^3.9.1",
-    "jsdoc": "^3.4.2",
-    "minami": "^1.1.1"
-  }
+  "homepage": "https://github.com/lolPants/fancylog#readme"
 }
