@@ -1,6 +1,6 @@
 {
   "name": "fancylog",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Fancy Logging Function",
   "main": "src/index.js",
   "scripts": {
