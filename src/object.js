@@ -71,7 +71,7 @@ class FancylogFile {
    * @param {*} value Value to output
    */
   i (value) { this._log(value, 'info') }
-  
+
   /**
    * Logs an object at DEBUG Level
    * @param {*} value Value to output
