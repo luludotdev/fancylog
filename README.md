@@ -63,7 +63,7 @@ FancyLog exposes a class called `FancylogFile`. You can use this to also output 
 // Require the module
 const FancyLog = require('fancylog')
 // Setup the class
-const log = new FancyLog('/path/to/log.txt')
+const log = new FancyLog.FileLogger('/path/to/log.txt')
 
 // From there, use the methods as normal from the variable 'log'
 log.v('Example String')

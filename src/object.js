@@ -8,7 +8,7 @@ const strip = require('strip-ansi')
 /**
  * Object to log to a file as well as the console
  */
-class FancylogFile {
+class FileLogger {
   /**
    * @param {string} path Output logfile path
    */
@@ -97,4 +97,4 @@ class FancylogFile {
   w (value) { this._log(value, 'warn') }
 }
 
-module.exports = FancylogFile
+module.exports = FileLogger

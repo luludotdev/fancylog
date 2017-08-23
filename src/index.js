@@ -1,6 +1,6 @@
 // Local Dependencies
 const { info, debug, error, verbose, warn } = require('./levels')
-const FancylogFile = require('./object')
+const FileLogger = require('./object')
 
 module.exports = {
   // Main Methods
@@ -18,5 +18,5 @@ module.exports = {
   w: warn,
 
   // Class Object
-  FancylogFile,
+  FileLogger,
 }
