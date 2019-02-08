@@ -8,7 +8,7 @@ declare module 'fancylog' {
     | 'verbose'
     | 'warn'
 
-  class FileLogger {
+  export class FileLogger {
     constructor (path: string)
 
     public readonly path: string
@@ -21,15 +21,9 @@ declare module 'fancylog' {
     public warn: LogFunction
   }
 
-  interface IMain {
-    info: LogFunction
-    debug: LogFunction
-    error: LogFunction
-    verbose: LogFunction
-    warn: LogFunction
-
-    FileLogger: FileLogger
-  }
-  
-  export = IMain
+  export const info: LogFunction
+  export const debug: LogFunction
+  export const error: LogFunction
+  export const verbose: LogFunction
+  export const warn: LogFunction
 }
