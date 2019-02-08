@@ -1,4 +1,3 @@
-// Local Dependencies
 const { generateString } = require('./helpers')
 
 /**

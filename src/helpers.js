@@ -1,5 +1,3 @@
-// Package Dependencies
-const rightpad = require('right-pad')
 const chalk = require('chalk')
 const dateFormat = require('dateformat')
 
@@ -42,13 +40,12 @@ const levelString = level => {
 }
 
 /**
- * 
  * @param {*} str Log Input
  * @param {string} level Level String ID
  * @returns {string}
  */
 const generateString = (str, level) => {
-  let type = rightpad(levelString(level), 9)
+  let type = levelString(level).padEnd(9)
   let time = timestamp()
 
   let string = objectHandler(str)

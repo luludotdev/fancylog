@@ -1,6 +1,5 @@
-// Local Dependencies
-const { info, debug, error, verbose, warn } = require('./levels')
 const FileLogger = require('./object')
+const { info, debug, error, verbose, warn } = require('./levels')
 
 module.exports = {
   // Main Methods
@@ -9,13 +8,6 @@ module.exports = {
   error,
   verbose,
   warn,
-
-  // Aliases
-  i: info,
-  d: debug,
-  e: error,
-  v: verbose,
-  w: warn,
 
   // Class Object
   FileLogger,
