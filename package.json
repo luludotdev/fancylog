@@ -1,10 +1,25 @@
 {
   "name": "fancylog",
-  "version": "3.2.1",
+  "version": "4.0.1",
   "description": "Fancy Logging!",
-  "main": "src/index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "test": "eslint --ext .js src/"
+    "prepublishOnly": "npm run test && npm run build",
+    "test": "npm run check && npm run lint",
+    "check": "npm run build -- --noEmit",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "prebuild": "rimraf lib",
+    "build": "tsc",
+    "build-dev": "npm run build -- --sourceMap",
+    "watch": "tsc --watch",
+    "dev": "npm run watch -- --sourceMap"
   },
   "repository": {
     "type": "git",
@@ -23,9 +38,16 @@
     "url": "https://github.com/lolPants/fancylog/issues"
   },
   "homepage": "https://github.com/lolPants/fancylog#readme",
-  "types": "./typings/index.d.ts",
   "devDependencies": {
-    "eslint": "^5.13.0"
+    "@types/dateformat": "^3.0.0",
+    "@types/mkdirp": "^0.5.2",
+    "@types/node": "^11.9.3",
+    "@types/strip-ansi": "^3.0.0",
+    "prettier": "^1.16.4",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.3.3"
   },
   "dependencies": {
     "chalk": "^2.4.2",
