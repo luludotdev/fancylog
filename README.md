@@ -1,74 +1,59 @@
-<h1 align='center'>Fancy Log <a href='https://www.npmjs.com/package/fancylog'><img src='https://img.shields.io/travis/lolPants/fancylog.svg?maxAge=2592000?style=flat-square'/></a></h1>
+# 📜 Fancy Log
 
-## Installation
-If you're using Yarn: `yarn add fancylog`  
-If you're using NPM: `npm install --save fancylog`
+[![NPM version](https://img.shields.io/npm/v/fancylog.svg?maxAge=3600)](https://www.npmjs.com/package/fancylog)
+[![NPM downloads](https://img.shields.io/npm/dt/fancylog.svg?maxAge=3600)](https://www.npmjs.com/package/fancylog)
+[![Build status](https://travis-ci.org/lolPants/fancylog.svg)](https://travis-ci.org/lolPants/fancylog)
+[![Dependencies](https://img.shields.io/david/lolpants/fancylog.svg?maxAge=3600)](https://david-dm.org/lolpants/fancylog)
+[![Coverage Status](https://coveralls.io/repos/github/lolPants/fancylog/badge.svg?branch=master)](https://coveralls.io/github/lolPants/fancylog?branch=master)
 
-Once installed, require the package with
+_Fancy Logging!_  
+Written in TypeScript, compiled down to ES5 for use in any Node.js version!
 
+## 💾 Installation
+The package is on the NPM registry as `fancylog`. Simply install it with your NPM client of choice.
+
+## 🔧 Usage
+First, import the module:
 ```js
+// CommonJS
 const log = require('fancylog')
+
+// ES Modules
+import * as log from 'fancylog'
 ```
 
-## Usage
-Call one of the following functions or shortcuts for different levels of warning.
-
-<table>
-  <tr>
-    <th>Logging Level</th>
-    <th>Main Method</th>
-    <th>Alias</th>
-  </tr>
-  <tr>
-    <td>Info</td>
-    <td><code>log.info</code></td>
-    <td><code>log.i</code></td>
-  </tr>
-  <tr>
-    <td>Debug</td>
-    <td><code>log.debug</code></td>
-    <td><code>log.d</code></td>
-  </tr>
-  <tr>
-    <td>Error</td>
-    <td><code>log.error</code></td>
-    <td><code>log.e</code></td>
-  </tr>
-  <tr>
-    <td>Verbose</td>
-    <td><code>log.verbose</code></td>
-    <td><code>log.v</code></td>
-  </tr>
-  <tr>
-    <td>Warn</td>
-    <td><code>log.warn</code></td>
-    <td><code>log.w</code></td>
-  </tr>
-</table>
-
-### Example Call
+From there you can call any of the log level functions:
 ```js
-// Code
-log.i('SOME TEXT HERE')
-
-// Would Output:
-// [INFO]    [01/01/1970 00:00:00] SOME TEXT HERE
+log.info()
+log.debug()
+log.error()
+log.verbose()
+log.warn()
 ```
 
-## File Output
-FancyLog exposes a class called `FancylogFile`. You can use this to also output all logged messages to a file. If the file doesn't exist, it will be created.
-
-### Usage
+You can also instantiate the `FileLogger` class to automatically log to a file as well as the console.
 ```js
-// Require the module
-const FancyLog = require('fancylog')
-// Setup the class
-const log = new FancyLog.FileLogger('/path/to/log.txt')
+// CommonJS
+const { FileLogger } = require('fancylog')
 
-// From there, use the methods as normal from the variable 'log'
-log.v('Example String')
+// ES Modules
+import { FileLogger } from 'fancylog'
 
-// OUTPUT
-// [VERBOSE] [01/01/1970 00:00:00] Example String
-// This is also appended to /path/to/log.txt
+const log = new FileLogger('/path/to/file.log')
+log.info()
+```
+
+### 📝 Example Output
+Calling:
+```js
+log.info('hello world')
+log.debug('hello world')
+log.verbose('hello world')
+```
+
+Would result in:
+```log
+[14/02/2019 09:02:54] [INFO]    | hello world
+[14/02/2019 09:02:54] [DEBUG]   | hello world
+[14/02/2019 09:02:54] [VERBOSE] | hello world
 ```
