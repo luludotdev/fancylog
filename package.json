@@ -11,15 +11,15 @@
     "lib/**/*"
   ],
   "scripts": {
-    "prepublishOnly": "npm run test && npm run build",
-    "test": "npm run check && npm run lint",
-    "check": "npm run build -- --noEmit",
+    "prepublishOnly": "yarn run test && yarn run build",
+    "test": "yarn run check && yarn run lint",
+    "check": "yarn run build --noEmit",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "prebuild": "rimraf lib",
     "build": "tsc",
-    "build-dev": "npm run build -- --sourceMap",
+    "build:dev": "yarn run build --sourceMap",
     "watch": "tsc --watch",
-    "dev": "npm run watch -- --sourceMap"
+    "dev": "yarn run watch --sourceMap"
   },
   "repository": {
     "type": "git",
