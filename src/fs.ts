@@ -7,17 +7,16 @@ const fse = {
   appendFile: promisify(fs.appendFile),
   ensureFile: async (path: string) => {
     if ((await fse.exists(path)) && (await fse.stat(path)).isFile() === true) {
-      return undefined
+      return
     }
 
     const { dir } = parsePath(path)
-    await fse.mkdirp(dir)
+    await mkdirp(dir)
 
     await fse.writeFile(path, '')
-    return undefined
+    return
   },
   exists: promisify(fs.exists),
-  mkdirp: promisify(mkdirp),
   stat: promisify(fs.stat),
   writeFile: promisify(fs.writeFile),
 }
