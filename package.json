@@ -32,6 +32,9 @@
     "console",
     "file"
   ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "author": "Jack Baron <jackmbaron@gmail.com> (https://www.jackbaron.com)",
   "license": "ISC",
   "bugs": {
